@@ -1,0 +1,294 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* Resets padding and margin for all elements and ensures box-sizing includes padding and border in width/height calculations */
+}
+
+:root {
+    --purple-100: #e2d3ff; /* Light purple */
+    --purple-500: #7e5bc7; /* Darker purple */
+    --yellow-100: #f5e6c9; /* Light yellow */
+    --yellow-500: #ffb340; /* Darker yellow */
+    --white: #ffffff; /* White */
+    --black: #121212; /* Near-black */
+    /* CSS variables for theme colors, easily reusable throughout the code */
+}
+
+img{
+    max-width: 100%; /* Ensures images scale within their containers */
+    display: block;  /* Removes any default inline spacing below images */
+}
+
+body {
+    background-color: #f2f2f2; /* Light gray background for the entire page */
+    min-height: 100vh; /* Ensures body height is at least the full viewport */
+    font-family: 'DM Sans'; /* Applies a sans-serif font */
+    font-size: 18px; /* Sets a base font size */
+    line-height: 1; /* Sets line height to be equal to the font size */
+    display: grid; /* Enables grid layout */
+    place-content: center; /* Centers content in the middle of the screen */
+}
+
+.xlg-text {
+    font-size: 4rem; /* Extra-large text size */
+    font-weight: 500; /* Medium-bold text */
+}
+
+.lg-text {
+    font-size: 2.75rem; /* Large text size */
+    font-weight: 500; /* Medium-bold text */
+}
+
+.med-text {
+    font-size: 2.35rem; /* Medium-large text size */
+    font-weight: 400; /* Regular text */
+}
+
+.sm-text {
+    font-size: 1.5rem; /* Small text size */
+    font-weight: 400; /* Regular text */
+}
+
+.bento-grid {
+    max-width: 1400px; /* Restricts the grid's width */
+    margin: 1rem; /* Adds margin around the grid */
+    display: grid; /* Creates a grid layout */
+    grid-auto-columns: 1fr; /* Sets automatic column width to 1 fraction of the available space */
+    grid-auto-rows: 75px; /* Sets row height to 75px by default */
+    gap: 2rem; /* Adds a gap between grid items */
+    grid-template-areas: 
+        'box1 box2 box2 box3'
+        'box1 box2 box2 box3'
+        'box1 box2 box2 box3'
+        'box1 box2 box2 box3'
+        'box1 box5 box6 box3'
+        'box4 box5 box6 box3'
+        'box4 box5 box6 box3'
+        'box4 box7 box8 box8'
+        'box4 box7 box8 box8'
+        'box4 box7 box8 box8';
+    /* Defines the grid layout, with specific areas for each item */
+}
+
+.bento-grid .item {
+    border-radius: .5rem; /* Rounds the corners of each grid item */
+    overflow: hidden; /* Ensures content doesn't overflow out of the grid item */
+}
+
+.bento-grid .item:nth-child(1) {
+    background-color: var(--yellow-100); /* Light yellow background */
+}
+
+.bento-grid .item:nth-child(2),
+.bento-grid .item:nth-child(8) {
+    background-color: var(--purple-500); /* Dark purple background */
+    color: var(--white); /* White text color */
+}
+
+.bento-grid .item:nth-child(3) {
+    background-color: var(--purple-100); /* Light purple background */
+}
+
+.bento-grid .item:nth-child(4),
+.bento-grid .item:nth-child(6) {
+    background-color: var(--yellow-500); /* Dark yellow background */
+}
+
+.bento-grid .item:nth-child(5),
+.bento-grid .item:nth-child(7) {
+    background-color: var(--white); /* White background */
+}
+
+.bento-grid .item:nth-child(1) {
+    grid-area: box1; /* Assigns this item to the 'box1' grid area */
+    padding: 6rem 2rem 0 2.5rem; /* Padding inside the item */
+}
+
+.bento-grid .item:nth-child(1) em {
+    color: var(--purple-500); /* Makes <em> elements inside this item purple */
+}
+
+.bento-grid .item:nth-child(1) img{
+    margin-top: 1rem; /* Adds a margin above the image */
+}
+
+.bento-grid .item:nth-child(2) {
+    grid-area: box2; /* Assigns this item to the 'box2' grid area */
+    padding: 2rem; /* Padding inside the item */
+    text-align: center; /* Centers text horizontally */
+    font-weight: 500; /* Medium-bold text */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Aligns items vertically */
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+}
+
+.bento-grid .item:nth-child(2) .emphasis {
+    color: var(--yellow-500); /* Makes elements with the 'emphasis' class dark yellow */
+}
+
+.bento-grid .item:nth-child(2) img{
+    width: 250px; /* Sets the width of images to 250px */
+    margin: 1rem 0 .5rem; /* Adds margins around the image */
+}
+
+.bento-grid .item:nth-child(3) {
+    grid-area: box3; /* Assigns this item to the 'box3' grid area */
+    padding: 2.75rem 2rem 2.5rem 2rem; /* Padding inside the item */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Aligns items vertically */
+    justify-content: space-between; /* Distributes space between items */
+    position: relative; /* Positions its children relative to this container */
+}
+
+.bento-grid .item:nth-child(3) img{
+    position: absolute; /* Positions the image absolutely within the parent */
+    height: 410px; /* Sets the height of the image */
+    object-fit: cover; /* Ensures the image covers its container */
+    object-position: left; /* Positions the image to the left */
+    top: 150px; /* Places the image 150px from the top of the container */
+}
+
+.bento-grid .item:nth-child(4) {
+    grid-area: box4; /* Assigns this item to the 'box4' grid area */
+    padding: 1.75rem 2.25rem; /* Padding inside the item */
+}
+
+.bento-grid .item:nth-child(4) p{
+    margin-bottom: 2rem; /* Adds margin below paragraphs */
+}
+
+.bento-grid .item:nth-child(5) {
+    grid-area: box5; /* Assigns this item to the 'box5' grid area */
+    padding: 1rem 2rem 1rem 2rem; /* Padding inside the item */
+    position: relative; /* Positions its children relative to this container */
+}
+
+.bento-grid .item:nth-child(5) p{
+    margin-top: 6rem; /* Adds margin above paragraphs */
+}
+
+.bento-grid .item:nth-child(5) img {
+    position: absolute; /* Positions the image absolutely within the parent */
+}
+
+.bento-grid .item:nth-child(6) {
+    grid-area: box6; /* Assigns this item to the 'box6' grid area */
+    position: relative; /* Positions its children relative to this container */
+    padding: 1rem 1.75rem; /* Padding inside the item */
+}
+
+.bento-grid .item:nth-child(6) p {
+    margin-bottom: 1rem; /* Adds margin below paragraphs */
+}
+
+.bento-grid .item:nth-child(7) {
+    grid-area: box7; /* Assigns this item to the 'box7' grid area */
+    padding: 1.5rem; /* Padding inside the item */
+}
+
+.bento-grid .item:nth-child(7) span{
+    display: block; /* Makes spans behave like block elements */
+    margin-bottom: 1rem; /* Adds margin below the span */
+}
+
+.bento-grid .item:nth-child(7) img {
+    margin-top: 1.5rem; /* Adds margin above the image */
+}
+
+.bento-grid .item:nth-child(8) {
+    grid-area: box8; /* Assigns this item to the 'box8' grid area */
+    padding: 2rem; /* Padding inside the item */
+    display: grid; /* Creates a grid layout */
+    grid-template-columns: 1.75fr 2fr; /* Divides the area into two columns */
+    align-items: center; /* Aligns items vertically */
+    gap: 1rem; /* Adds a gap between grid items */
+}
+
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-auto-rows: initial; /* Removes the fixed row height */
+        grid-template-areas:
+            'box1 box1 box2 box2'
+            'box1 box1 box2 box2'
+            'box3 box3 box4 box4'
+            'box3 box3 box4 box4'
+            'box5 box5 box6 box6'
+            'box5 box5 box6 box6'
+            'box7 box7 box8 box8'
+            'box7 box7 box8 box8';
+        /* Adjusts the grid layout for screens smaller than 1024px */
+    }
+
+    .bento-grid .item:nth-child(8) {
+        grid-template-columns: 1fr; /* Collapses the two columns into one for small screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-grid .item {
+        text-align: center; /* Centers text in all grid items */
+    } 
+
+    .bento-grid {
+        grid-template-areas:
+            'box2'
+            'box5'
+            'box6'
+            'box3'
+            'box8'
+            'box7'
+            'box1'
+            'box4';
+        /* Stack all grid items vertically for medium-sized screens */
+    }
+
+    .bento-grid .item:nth-child(4),
+    .bento-grid .item:nth-child(5),
+    .bento-grid .item:nth-child(6),
+    .bento-grid .item:nth-child(7) {
+        text-align: left; /* Aligns text to the left */
+    }
+
+    .bento-grid .item:nth-child(1) {
+        padding: 2rem; /* Adjusts padding */
+        text-align: left; /* Aligns text to the left */
+    }
+
+    .bento-grid .item:nth-child(1) .lg-text {
+        font-size: 2.5rem; /* Adjusts text size */
+    }
+
+    .bento-grid .item:nth-child(1) img {
+        width: 250px; /* Adjusts image size */
+    }
+
+    .bento-grid .item:nth-child(3) {
+        padding: 2.75rem 1rem 2.5rem 1rem; /* Adjusts padding */
+    }
+
+    .bento-grid .item:nth-child(3) .lg-text {
+        font-size: 2.25rem; /* Adjusts text size */
+    }
+
+    .bento-grid .item:nth-child(3) img {
+        margin: 1rem 0; /* Adjusts margin */
+        position: relative; /* Resets image position */
+        height: initial; /* Resets image height */
+    }
+
+    .bento-grid .item:nth-child(5) p {
+        margin-top: 10rem; /* Adds extra margin above paragraphs */
+    }
+
+    .bento-grid .item:nth-child(8) {
+        padding: 1.5rem 4rem; /* Adjusts padding */
+    }
+}
+
+@media (max-width: 540px) {
+    .bento-grid .item:nth-child(5) p {
+        margin-top: 6rem; /* Adjusts margin above paragraphs for smaller screens */
+    }
+}
